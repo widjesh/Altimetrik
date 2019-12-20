@@ -1,4 +1,4 @@
-# Altimetrik - BACK-END-SIDE
+# Altimetrik -- BACK-END-SIDE
 
 ## Installing the dependencies
 
