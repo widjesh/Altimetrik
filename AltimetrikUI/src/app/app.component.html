@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        ul li {
+            width: 10em;
+            float: left;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #e9e9e9;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .topnav .search-container {
+            float: right;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: none;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <div class="search-container">
+            <input type="text" name="vin" (keyup)="OnInput($event)">
+            <input type="submit" text="Search" (click)=search()>
+        </div>
+    </div>
+    <div *ngIf="city">
+            <iframe width="600" height="450" frameborder="0" style="border:0"
+                [src]='sanitizer.bypassSecurityTrustResourceUrl(url)' allowfullscreen></iframe>
+        </div>
+    <h1 *ngIf="!details" style="margin: 20px">Welcome to Altimetrik Playground</h1>
+    <h2 *ngIf="!details" style="margin: 20px">Please Enter VIN Number</h2>
+    <h2 *ngIf="details" style="margin: 20px ;color: #008BFF;">Car Details</h2>
+        <table class="table" style="float: left">
+
+            <tbody>
+                <tr *ngFor="let item of details">
+                    <td>{{item.Variable}}</td>
+                    <td>{{item.Value}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    <h2 *ngIf="makes" style="margin: 20px ;color: #008BFF;">Car Makes</h2>
+
+            <table class="table" style="float: left">
+            <thead>
+                <tr *ngIf="details">
+                    <th scope="col">Makes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of makes">
+                    <td>{{item.MakeName}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 *ngIf="models" style="margin: 20px ;color: #008BFF;">Car Models</h2>
+
+        <table class="table" style="float: left">
+        <thead>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of models">
+                <td>{{item.Model_Name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
