@@ -1,4 +1,18 @@
-# AltimetrikUI
+# Altimetrik - BACK-END-SIDE
+
+## Installing the dependencies
+
+Run `npm i` or `npm install`
+
+## Running the server
+
+Run `npm run start`
+
+## Now you can make a call to the following API-ENDPOINT
+
+`http://localhost:3000/vin/:vin_number` where vin_number is equal to a VIN_NUMBER of a vehicle
+
+# AltimetrikUI -- FRONT-END-SIDE
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.7.
 
@@ -17,5 +31,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Building StandAlone Application
 
 Run `npm run electron-build`
-
 
